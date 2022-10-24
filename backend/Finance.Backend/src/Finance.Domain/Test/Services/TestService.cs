@@ -1,20 +1,28 @@
-﻿using Finance.Domain.Interfaces.Services;
+﻿using Finance.Domain.Interfaces.Repository;
 using Finance.Domain.Test.Commands;
 
 namespace Finance.Domain.Test.Services
 {
     public class TestService : ITestService
     {
-        public Entities.Test Test(NewTestCommand command)
+        private readonly ITestRepository _repository;
+
+        public TestService(ITestRepository repository)
+        {
+            _repository = repository;
+        }
+
+        public async Task<Entities.Test> Test(NewTestCommand command)
         {
             var entity = new Entities.Test()
             {
-                Id = 11,
                 Username = command.Username,
                 Password = command.Password,
                 LastUpdate = DateTime.Now
 
             };
+
+            entity = await _repository.AddAsync(entity);
 
             return entity;
         }

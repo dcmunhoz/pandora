@@ -1,8 +1,8 @@
 ﻿using Finance.Application.Dto.Test.Requests;
 using Finance.Application.Dto.Test.Responses;
 using Finance.Application.Interfaces.Services;
-using Finance.Domain.Interfaces.Services;
 using Finance.Domain.Test.Commands;
+using Finance.Domain.Test.Services;
 
 namespace Finance.Application.Services
 {

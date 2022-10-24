@@ -23,7 +23,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Finance.Infra", "src\Financ
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Finance.Test", "test\Finance.Test\Finance.Test.csproj", "{375E3E4C-05E8-47D2-99FC-7C313682FE5F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Finance.Application.Dto", "src\Finance.Application.Dto\Finance.Application.Dto.csproj", "{9C22F794-CA06-4BD9-8E3E-41B82D9CEF32}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Finance.Application.Dto", "src\Finance.Application.Dto\Finance.Application.Dto.csproj", "{9C22F794-CA06-4BD9-8E3E-41B82D9CEF32}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
