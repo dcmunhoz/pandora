@@ -1,6 +1,5 @@
 ﻿using Finance.Domain.Interfaces.Repository;
 using Finance.Infra.Repository;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Finance.Infra
@@ -9,7 +8,6 @@ namespace Finance.Infra
     {
         public static IServiceCollection AddInfra(this IServiceCollection services )
         {
-
             services.AddScoped<ITestRepository, TestRepository>();
 
             return services;

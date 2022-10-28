@@ -11,9 +11,9 @@ namespace Finance.Infra.Repository
     internal class TestRepository : ITestRepository
     {
 
-        private readonly FinanceDbContext _context;
+        private readonly IDBContext _context;
 
-        public TestRepository(FinanceDbContext context)
+        public TestRepository(IDBContext context)
         {
             _context = context;
         }
@@ -23,7 +23,7 @@ namespace Finance.Infra.Repository
 
             _context.Tests.Add(entity);
 
-            await _context.SaveChangesAsync();
+            _context.SaveChanges();
 
             return entity;
         }

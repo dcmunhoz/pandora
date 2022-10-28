@@ -25,6 +25,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Finance.Test", "test\Financ
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Finance.Application.Dto", "src\Finance.Application.Dto\Finance.Application.Dto.csproj", "{9C22F794-CA06-4BD9-8E3E-41B82D9CEF32}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Finance.Infra.Postgresql", "src\Finance.Infra.Postgresql\Finance.Infra.Postgresql.csproj", "{45BB0590-5A14-4387-8308-9524438A3E19}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -55,6 +57,10 @@ Global
 		{9C22F794-CA06-4BD9-8E3E-41B82D9CEF32}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9C22F794-CA06-4BD9-8E3E-41B82D9CEF32}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9C22F794-CA06-4BD9-8E3E-41B82D9CEF32}.Release|Any CPU.Build.0 = Release|Any CPU
+		{45BB0590-5A14-4387-8308-9524438A3E19}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{45BB0590-5A14-4387-8308-9524438A3E19}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{45BB0590-5A14-4387-8308-9524438A3E19}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{45BB0590-5A14-4387-8308-9524438A3E19}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -66,6 +72,7 @@ Global
 		{ED174E93-5BFA-4B3A-9236-DB1F3482C6B4} = {FA94F656-2E70-4C18-8168-CF73D259C760}
 		{375E3E4C-05E8-47D2-99FC-7C313682FE5F} = {4FE565D6-4F30-4328-A4C9-F0069959D24B}
 		{9C22F794-CA06-4BD9-8E3E-41B82D9CEF32} = {BF96F715-82D8-4FF8-A844-30FAC0E28CFC}
+		{45BB0590-5A14-4387-8308-9524438A3E19} = {FA94F656-2E70-4C18-8168-CF73D259C760}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {19977154-72B5-4F1B-8599-D51499472EA3}

@@ -15,26 +15,11 @@ namespace Finance.Infra.Repository.Mapping
         {
             builder.HasKey(b => b.Id);
 
-            builder.Property(p => p.Id)
-                .HasColumnName("SEQTESTE")
-                .HasColumnType("INTEGER")
-                .IsRequired();
-
             builder.Property(p => p.Username)
-                .HasColumnName("USERNAME")
-                .HasColumnType("VARCHAR(255)")
                 .IsRequired();
 
             builder.Property(p => p.Password)
-                .HasColumnName("PASSWORD")
-                .HasColumnType("VARCHAR(255)")
                 .IsRequired();
-
-            builder.Property(p => p.LastUpdate)
-                .HasColumnName("LASTUPDATE")
-                .HasColumnType("TIMESTAMP");
-
-            builder.ToTable("FIN_TEST");
 
 
         }

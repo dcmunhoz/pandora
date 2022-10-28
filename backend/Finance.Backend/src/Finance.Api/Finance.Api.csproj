@@ -14,6 +14,7 @@
     <ProjectReference Include="..\Finance.Application.Dto\Finance.Application.Dto.csproj" />
     <ProjectReference Include="..\Finance.Application\Finance.Application.csproj" />
     <ProjectReference Include="..\Finance.Domain\Finance.Domain.csproj" />
+    <ProjectReference Include="..\Finance.Infra.Postgresql\Finance.Infra.Postgresql.csproj" />
     <ProjectReference Include="..\Finance.Infra\Finance.Infra.csproj" />
   </ItemGroup>
 

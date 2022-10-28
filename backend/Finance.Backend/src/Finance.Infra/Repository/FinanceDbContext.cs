@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Finance.Infra.Repository
 {
-    public class FinanceDbContext: DbContext
+    public class FinanceDbContext: DbContext, IDBContext
     {
         public DbSet<Test> Tests { get; set; }
 
@@ -12,6 +12,8 @@ namespace Finance.Infra.Repository
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
+            base.OnModelCreating(builder);
+
             builder.ApplyConfiguration(new TestMap());
         }
 
