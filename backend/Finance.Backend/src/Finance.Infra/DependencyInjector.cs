@@ -1,14 +1,14 @@
-﻿using Finance.Domain.Interfaces.Repository;
-using Finance.Infra.Repository;
-using Microsoft.Extensions.DependencyInjection;
+﻿using Finance.Application.Common.Interfaces.Repository;
+using Finance.Infra.Persistence.Repository;
 
-namespace Finance.Infra
+namespace Microsoft.Extensions.DependencyInjection
 {
     public static class DependencyInjector
     {
         public static IServiceCollection AddInfra(this IServiceCollection services )
         {
-            services.AddScoped<ITestRepository, TestRepository>();
+            // Repositories
+            services.AddTransient<ITestRepository, TestRepository>();
 
             return services;
         }

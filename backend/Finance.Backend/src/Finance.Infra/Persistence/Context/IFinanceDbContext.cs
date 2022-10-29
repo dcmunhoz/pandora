@@ -6,12 +6,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Finance.Infra.Repository
+namespace Finance.Infra.Repository.Context
 {
-    public interface IDBContext
+    public interface IFinanceDbContext
     {
         public DbSet<Test> Tests { get; set; }
 
         public int SaveChanges();
+
+        public Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
     }
 }

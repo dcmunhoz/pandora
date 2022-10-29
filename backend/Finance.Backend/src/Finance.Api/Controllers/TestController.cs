@@ -1,5 +1,9 @@
-﻿using Finance.Application.Dto.Test.Requests;
-using Finance.Application.Interfaces.Services;
+﻿using System;
+using Finance.Application.Business.Example.Command.New;
+using Finance.Application.Business.Example.Query.GetTestById;
+using Finance.Application.Dto.Test.Requests;
+using Finance.Application.Dto.Test.Responses;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Finance.Api.Controllers
@@ -8,17 +12,44 @@ namespace Finance.Api.Controllers
     [Route("/api/v1/[Controller]")]
     public class TestController : ControllerBase
     {
-        private readonly ITestAppService _service;
+        private readonly IMediator _mediator;
+        private readonly ISender _sender;
 
-        public TestController(ITestAppService service)
+        public TestController(IMediator mediator, ISender sender)
         {
-            _service = service;
+            _mediator = mediator;
+            _sender = sender;
         }
 
         [HttpPost]
-        public IActionResult PostTest([FromBody] NewTestRequest request )
+        [ProducesResponseType(typeof(NewTestResponse), 200)]
+        public async Task<IActionResult> PostTest([FromBody] NewTestRequest request )
         {
-            return Ok( _service.Test(request) );
+
+            var command = request.MapTo<AddTestCommand>();
+
+            var result = (await _mediator.Send(command)).MapTo<NewTestResponse>();
+
+            return Ok(result);
+        }
+
+
+        [HttpGet("{Id}")]
+        [ProducesResponseType(typeof(NewTestResponse), 200)]
+        [ProducesResponseType(typeof(NotFoundResult), 404)]
+        public async Task<IActionResult> GetById(int Id)
+        {
+            var query = new GetTestByIdQuery(Id);
+
+            var entity = await _sender.Send(query);
+
+            if (entity is null)
+            {
+                return NotFound();
+            }
+
+            return Ok(entity);
+
         }
     }
 }

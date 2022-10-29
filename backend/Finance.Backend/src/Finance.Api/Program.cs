@@ -1,20 +1,16 @@
-using Finance.Api;
-using Finance.Application;
-using Finance.Domain;
-using Finance.Infra;
 using Finance.Infra.Postgresql;
-using Finance.Infra.Repository;
+using Finance.Infra.Repository.Context;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Project DI and configurations
-builder.Services.AddApi();
-builder.Services.AddApplication();
-builder.Services.AddDomain();
-builder.Services.AddInfra();
+builder.Services
+    .AddApi()
+    .AddApplication()
+    .AddInfra();
 
-builder.Services.AddScoped<IDBContext, PostgreContext>();
+builder.Services.AddTransient<IFinanceDbContext, FinancePostgresqlContext>();
 
 builder.Services.AddDbContext<FinanceDbContext>(option =>
     option.UseNpgsql(builder.Configuration.GetConnectionString("POSTGRESQL")));

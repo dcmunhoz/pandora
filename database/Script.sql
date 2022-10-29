@@ -1,19 +1,19 @@
-CREATE SEQUENCE S_FIN_TEST;
+create sequence s_fin_test;
 
-
-CREATE TABLE FIN_TEST (
-	SEQTESTE INTEGER NOT NULL DEFAULT NEXTVAL('S_FIN_TEST'),
-	USERNAME VARCHAR(255) NOT NULL,
-	PASSWORD VARCHAR(255) NOT NULL,
-	LASTUPDATE TIMESTAMP
+create table fin_test(
+	seqtest integer default nextval('s_fin_test'),
+	username varchar(16) not null,
+	password varchar(16) not null,
+	lastupdate timestamp default now()
 );
 
-ALTER TABLE FIN_TEST
-ADD CONSTRAINT PK_FIN_TEST PRIMARY KEY(SEQTESTE);
 
-INSERT INTO FIN_TEST(USERNAME, PASSWORD, LASTUPDATE)
-VALUES('DANIEL', '123456', NOW());
+select * from fin_test a;
 
-SELECT *
-FROM FIN_TEST;
+insert into fin_test(username, password)
+values('daniel', '1234');
 
+
+update fin_test 
+set username = 'biririr'
+where seqtest = 10;

@@ -5,10 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Finance.Domain.Interfaces.Repository
+namespace Finance.Application.Common.Interfaces.Repository
 {
     public interface ITestRepository
     {
-        public Task<Entities.Test> AddAsync(Entities.Test entity);
+        public Task<Test> AddAsync(Test test);
+        public Task<Test> GetById(int id);
     }
 }

@@ -2,9 +2,9 @@
 using Finance.Infra.Repository.Mapping;
 using Microsoft.EntityFrameworkCore;
 
-namespace Finance.Infra.Repository
+namespace Finance.Infra.Repository.Context
 {
-    public class FinanceDbContext: DbContext, IDBContext
+    public class FinanceDbContext : DbContext, IFinanceDbContext
     {
         public DbSet<Test> Tests { get; set; }
 

@@ -1,7 +1,4 @@
 ﻿namespace Finance.Application.Dto.Test.Responses
 {
-    public class NewTestResponse
-    {
-        public int Id { get; set; }
-    }
+    public record NewTestResponse(int Id, string Username, string Password);
 }

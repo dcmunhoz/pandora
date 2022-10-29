@@ -1,14 +1,19 @@
-﻿using Finance.Application.Interfaces.Services;
-using Finance.Application.Services;
-using Microsoft.Extensions.DependencyInjection;
+﻿using AutoMapper;
+using FluentValidation.AspNetCore;
+using MediatR;
+using System.Reflection;
 
-namespace Finance.Application
+namespace Microsoft.Extensions.DependencyInjection
 {
     public static class DependencyInjector
     {
         public static IServiceCollection AddApplication(this IServiceCollection services)
         {
-            services.AddTransient<ITestAppService, TestAppService>();
+            services.AddMediatR(Assembly.GetExecutingAssembly());
+            services.AddAutoMapper(Assembly.GetExecutingAssembly());
+
+            var serviceProvider = services.BuildServiceProvider();
+            MapperExtension.Configure(serviceProvider.GetService<IMapper>());
 
             return services;
         }

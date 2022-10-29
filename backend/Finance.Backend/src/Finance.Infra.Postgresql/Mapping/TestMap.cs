@@ -22,8 +22,8 @@ namespace Finance.Infra.Postgresql.Mapping
                 .HasColumnType("varchar(255)");
 
             builder.Property(x => x.Password)
-                .HasColumnName("username")
-                .HasColumnType("varchar2(255)");
+                .HasColumnName("password")
+                .HasColumnType("varchar(255)");
 
             builder.Property(x => x.LastUpdate)
                 .HasColumnName("lastupdate")

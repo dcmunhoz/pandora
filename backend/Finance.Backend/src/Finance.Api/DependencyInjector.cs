@@ -1,4 +1,6 @@
-﻿namespace Finance.Api
+﻿using Microsoft.OpenApi.Models;
+
+namespace Microsoft.Extensions.DependencyInjection
 {
     public static class DependencyInjector
     {
@@ -9,7 +11,15 @@
             services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             services.AddEndpointsApiExplorer();
-            services.AddSwaggerGen();
+            services.AddSwaggerGen(option =>
+            {
+                option.SwaggerDoc("v1", new OpenApiInfo()
+                {
+                    Version = "v1",
+                    Title = "My Finance API",
+                    Description = "BFF Api to controll the moviments of personal finances "
+                });
+            });
 
             return services;
         }
