@@ -16,33 +16,17 @@ namespace Finance.Application.Business.Example.Command.Add
     public class AddTestCommandHandler : IRequestHandler<AddTestCommand, TestResult>
     {
         private readonly ITestRepository _repository;
-        private readonly IValidator<AddTestCommand> _validator;
 
-        public AddTestCommandHandler(ITestRepository repository, IValidator<AddTestCommand> validator)
+        public AddTestCommandHandler(ITestRepository repository)
         {
             _repository = repository;
-            _validator = validator;
         }
 
         public async Task<TestResult> Handle(AddTestCommand request, CancellationToken cancellationToken)
         {
-
-            //AddTestValidation validation = new AddTestValidation();
-
-            //var validationResult = validation.Validate(request);
-            //var validationResult = _validator.Validate(request);
-
-            //if (!validationResult.IsValid)
-            //{
-            //    throw new ArgumentException(validationResult.Errors.FirstOrDefault().ErrorMessage.ToString());
-            //}
-
-
-
             var test = new Test(request.Username, request.Password);
 
             await _repository.AddAsync(test);
-
 
             return test.MapTo<TestResult>();
         }

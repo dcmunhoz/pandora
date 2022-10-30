@@ -1,4 +1,7 @@
 ﻿using AutoMapper;
+using Finance.Application.Business.Example.Command.New;
+using Finance.Application.Common.Behavior;
+using FluentValidation;
 using FluentValidation.AspNetCore;
 using MediatR;
 using System.Reflection;
@@ -11,6 +14,8 @@ namespace Microsoft.Extensions.DependencyInjection
         {
             services.AddMediatR(Assembly.GetExecutingAssembly());
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
+            services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
+            services.AddScoped(typeof(IPipelineBehavior<,>), typeof(ValidationsBehavior<,>));
 
             var serviceProvider = services.BuildServiceProvider();
             MapperExtension.Configure(serviceProvider.GetService<IMapper>());
