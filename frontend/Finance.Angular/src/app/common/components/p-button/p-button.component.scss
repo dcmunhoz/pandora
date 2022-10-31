@@ -1,0 +1,67 @@
+.p-button {
+  background-color: #fff;
+  border: 2px solid;
+  border-radius: 5px;
+  padding: 10px 25px;
+  font-size: 16px;
+  transition: 50ms;
+
+  &:hover{
+    cursor: pointer;
+  }
+
+  &.p-button-style-normal.p-button-type-normal {
+    border-color: var(--default-blue);
+    color: var(--default-blue);
+
+    &:active {
+      border-color: var(--dark-blue);
+      color: var(--dark-blue);
+    }
+  }
+
+  &.p-button-style-primary.p-button-type-normal {
+    border-color: var(--default-blue);
+    background-color: var(--default-blue);
+    color: #FFF;
+
+    &:hover {
+      border-color: var(--dark-blue);
+      background-color: var(--dark-blue);
+    }
+
+    &:active{
+      border-color: var(--darker-blue);
+      background-color: var(--darker-blue);
+    }
+
+  }
+
+  &.p-button-style-normal.p-button-type-danger {
+    border-color: var(--default-red);
+    color: var(--default-red);
+
+    &:active {
+      border-color: var(--dark-red);
+      color: var(--dark-red);
+    }
+  }
+
+  &.p-button-style-primary.p-button-type-danger {
+    border-color: var(--default-red);
+    background-color: var(--default-red);
+    color: #FFF;
+
+    &:hover {
+      border-color: var(--dark-red);
+      background-color: var(--dark-red);
+    }
+
+    &:active{
+      border-color: var(--darker-red);
+      background-color: var(--darker-red);
+    }
+
+  }
+
+}

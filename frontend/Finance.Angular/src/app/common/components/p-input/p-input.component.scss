@@ -1,0 +1,27 @@
+.p-base-input {
+  outline: none;
+  border: 2px solid;
+  border-radius: 5px;
+  padding: 5px 12px;
+  font-size: 16px;
+  transition: 100ms;
+}
+
+.p-base-input:hover {
+  border-color: #d1d1d1;
+}
+
+.p-base-input:focus {
+  border-color: var(--default-blue);
+}
+
+.p-base-input-fill {
+  background-color: #F5F5F5;
+  border-color: #F5F5F5;
+}
+
+.p-base-input-default {
+  background-color: #FFF;
+  border-color: #F5F5F5;
+}
+

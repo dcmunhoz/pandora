@@ -1,1 +1,29 @@
-/* You can add global styles to this file, and also import other style files */
+/*
+  #IMPORTS
+*/
+
+@import url('./fonts.scss');
+
+/*
+  #VARS
+*/
+:root {
+  --default-dark: #2D2D2D;
+  --default-blue: #0097D8;
+  --dark-blue: #0081B8;
+  --darker-blue: #006a97;
+  --default-red: #EF4C4C;
+  --dark-red: #DF4949;
+  --darker-red: #C53D3D;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+
+  font-family: 'Lato';
+  color: var(--default-dark)
+
+}
+

@@ -1,0 +1,11 @@
+<button
+  class="p-button"
+  [class.p-button-style-normal]="style === 'normal'"
+  [class.p-button-type-normal]="type === 'normal'"
+  [class.p-button-style-primary]="style === 'primary'"
+  [class.p-button-type-danger]="type === 'danger'"
+  (click)="emitClick()"
+>
+  {{ text }}
+</button>
+

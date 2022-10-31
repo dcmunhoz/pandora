@@ -7,4 +7,8 @@ import { Component, Input } from '@angular/core';
 })
 export class AppComponent {
   protected mensagem: string = 'Olá mundo;';
+
+  public clickTest(): void {
+    console.log('mensagem');
+  }
 }
