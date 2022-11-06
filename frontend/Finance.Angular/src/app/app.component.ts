@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -7,6 +7,7 @@ import { Component, Input } from '@angular/core';
 })
 export class AppComponent {
   protected mensagem: string = 'Olá mundo;';
+  protected inputModel: string = '';
 
   public clickTest(): void {
     console.log('mensagem');

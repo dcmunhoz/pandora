@@ -19,10 +19,13 @@
 <hr />
 
 <p-input
+  [(ngModel)]="inputModel"
   p-type="text"
   p-placeholder="Teste"
   p-style="fill"
 ></p-input>
+<br />
+<span>Input value: {{ inputModel }}</span>
 
 <br /><br />
 <h1>Buttons</h1>
