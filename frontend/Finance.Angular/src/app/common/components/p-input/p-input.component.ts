@@ -1,6 +1,8 @@
 import { Component, forwardRef, Input } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
+import { generateId } from './../../utils/utils';
+
 @Component({
   selector: 'p-input',
   templateUrl: './p-input.componen.html',
@@ -17,6 +19,7 @@ export default class PInputComponent implements ControlValueAccessor {
   @Input('p-type') type: 'text' | 'password' = 'text';
   @Input('p-placeholder') placeholder: string = '';
   @Input('p-style') style: 'fill' | 'default' = 'default';
+  @Input('p-label') label: string = '';
 
   private _onChange = (value: any): void => {};
   private _onTouched = (value: any): void => {};
@@ -28,7 +31,11 @@ export default class PInputComponent implements ControlValueAccessor {
     this._onTouched(val);
   }
 
-  constructor() {}
+  protected id: string = '';
+
+  constructor() {
+    this.id = 'p-input-' + generateId();
+  }
 
   public writeValue(value: any): void {
     this.value = value;

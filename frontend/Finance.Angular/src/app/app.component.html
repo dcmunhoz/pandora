@@ -23,9 +23,22 @@
   p-type="text"
   p-placeholder="Teste"
   p-style="fill"
+  p-label="Input com model"
 ></p-input>
-<br />
-<span>Input value: {{ inputModel }}</span>
+<form
+  #forminho
+  [formGroup]="form"
+>
+  <p-input
+    formControlName="label1"
+    p-type="text"
+    p-placeholder="Teste"
+    p-style="fill"
+    p-label="Input com form"
+  ></p-input>
+  <br />
+  <span>Input value: {{ inputModel }} </span>
+</form>
 
 <br /><br />
 <h1>Buttons</h1>

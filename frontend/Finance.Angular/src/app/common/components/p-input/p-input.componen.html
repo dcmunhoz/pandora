@@ -1,8 +1,17 @@
-<input
-  [(ngModel)]="value"
-  class="p-base-input"
-  [type]="type"
-  [placeholder]="placeholder"
-  [class.p-base-input-fill]="style === 'fill'"
-  [class.p-base-input-default]="style === 'default'"
-/>
+<div class="p-input-container">
+  <label
+    *ngIf="label"
+    class="p-input-label"
+    [for]="id"
+    >{{label}}</label
+  >
+  <input
+    [id]="id"
+    [(ngModel)]="value"
+    class="p-base-input"
+    [type]="type"
+    [placeholder]="placeholder"
+    [class.p-base-input-fill]="style === 'fill'"
+    [class.p-base-input-default]="style === 'default'"
+  />
+</div>

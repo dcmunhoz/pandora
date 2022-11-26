@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
@@ -8,7 +8,7 @@ import PInputModule from './common/components/p-input/p-input.module';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [FormsModule, BrowserModule, PInputModule, PButtonModule],
+  imports: [FormsModule, ReactiveFormsModule, BrowserModule, PInputModule, PButtonModule],
   providers: [],
   bootstrap: [AppComponent]
 })
