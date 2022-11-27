@@ -1,10 +1,10 @@
 ﻿using AutoMapper;
-using Pandora.Application.Business.Example.Command.New;
 using Pandora.Application.Common.Behavior;
 using FluentValidation;
 using FluentValidation.AspNetCore;
 using MediatR;
 using System.Reflection;
+using Pandora.Application.Common.Notification;
 
 namespace Microsoft.Extensions.DependencyInjection
 {
@@ -19,6 +19,8 @@ namespace Microsoft.Extensions.DependencyInjection
 
             var serviceProvider = services.BuildServiceProvider();
             MapperExtension.Configure(serviceProvider.GetService<IMapper>());
+
+            services.AddSingleton<INotificationHandler, NotificationHandler>();
 
             return services;
         }
