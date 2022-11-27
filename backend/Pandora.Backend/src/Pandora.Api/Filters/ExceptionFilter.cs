@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
+using Microsoft.AspNetCore.Mvc.Formatters;
 using System.Net;
 
 namespace Pandora.Api.Filters
@@ -10,6 +11,9 @@ namespace Pandora.Api.Filters
         {
             base.OnException(context);
 
+            var mediaTypes = new MediaTypeCollection();
+            mediaTypes.Add("application/problem+json");
+
             var problem = new ProblemDetails()
             {
                 Type = "https://www.rfc-editor.org/rfc/rfc7231#section-6.6.1",
@@ -19,7 +23,10 @@ namespace Pandora.Api.Filters
                 Instance = context.HttpContext.Request.Path
             };
 
-            var result = new ObjectResult(problem);
+            var result = new ObjectResult(problem)
+            {
+                ContentTypes = mediaTypes
+            };
 
             context.Result = result;
 
