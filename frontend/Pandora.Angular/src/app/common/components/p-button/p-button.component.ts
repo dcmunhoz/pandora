@@ -7,8 +7,9 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 })
 export class PButtonComponent {
   @Input('p-text') text: string = '';
-  @Input('p-style') style: 'normal' | 'primary' = 'normal';
+  @Input('p-style') style: 'normal' | 'fill' = 'normal';
   @Input('p-type') type: 'normal' | 'danger' = 'normal';
+  @Input('p-size') size: 'sm' | 'md' | 'lg' = 'md';
 
   @Output('p-click') clickAction = new EventEmitter<null>();
 

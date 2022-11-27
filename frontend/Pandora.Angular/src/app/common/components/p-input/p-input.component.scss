@@ -1,12 +1,38 @@
 
+.p-input-size-sm {
+  padding: 5px 15px;
+}
+
+.p-input-size-md {
+  padding: 10px 20px;
+}
+
+.p-input-size-lg {
+  padding: 15px 25px;
+}
+
+.p-input-error{
+  > label {
+    &, small {
+      color: var(--default-red);
+    }
+  }
+
+  > input{
+    border-color: var(--default-red);
+  }
+}
+
 .p-input-container {
   box-sizing: border-box;
+  display: inline-block;
   position: relative;
+  padding: 5px;
 }
 
 .p-input-label{
   font-weight: bold;
-  padding: 10px 0;
+  padding-bottom: 10px;
   position: relative;
   display: inline-block;
 }
@@ -15,23 +41,32 @@
   outline: none;
   border: 2px solid;
   border-radius: 5px;
-  padding: 5px 12px;
   font-size: 16px;
   transition: 100ms;
   display: block;
 }
 
 .p-base-input:hover {
-  border-color: #d1d1d1;
+  border-color: #EEE;
 }
 
 .p-base-input:focus {
-  border-color: var(--default-blue);
+  border-color: var(--default-green);
 }
 
 .p-base-input-fill {
   background-color: #F5F5F5;
   border-color: #F5F5F5;
+}
+
+.p-base-input-fill:hover{
+  background-color: #EEE;
+  border-color: #EEE;
+}
+
+.p-base-input-fill:focus {
+  background-color: #EEE;
+  border-color: var(--default-green);
 }
 
 .p-base-input-default {

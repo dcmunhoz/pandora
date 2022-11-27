@@ -1,10 +1,14 @@
-<div class="p-input-container">
+<div
+  class="p-input-container"
+  [class.p-input-error]="error === true"
+>
   <label
     *ngIf="label"
     class="p-input-label"
     [for]="id"
-    >{{label}}</label
   >
+    {{label}}
+  </label>
   <input
     [id]="id"
     [(ngModel)]="value"
@@ -13,5 +17,8 @@
     [placeholder]="placeholder"
     [class.p-base-input-fill]="style === 'fill'"
     [class.p-base-input-default]="style === 'default'"
+    [class.p-input-size-sm]="size === 'sm'"
+    [class.p-input-size-md]="size === 'md'"
+    [class.p-input-size-lg]="size === 'lg'"
   />
 </div>

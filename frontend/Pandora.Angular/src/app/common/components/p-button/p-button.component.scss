@@ -3,38 +3,33 @@
   border: 2px solid;
   border-radius: 5px;
   padding: 10px 25px;
-  font-size: 16px;
-  transition: 50ms;
+  font-weight: bold;
+  transition: 80ms;
 
   &:hover{
     cursor: pointer;
   }
 
-  &.p-button-style-normal.p-button-type-normal {
-    border-color: var(--default-blue);
-    color: var(--default-blue);
-
-    &:active {
-      border-color: var(--dark-blue);
-      color: var(--dark-blue);
-    }
+  &.p-button-size-sm {
+    font-size: 12px;
   }
 
-  &.p-button-style-primary.p-button-type-normal {
-    border-color: var(--default-blue);
-    background-color: var(--default-blue);
-    color: #FFF;
+  &.p-button-size-md {
+    font-size: 18px;
+  }
 
-    &:hover {
-      border-color: var(--dark-blue);
-      background-color: var(--dark-blue);
+  &.p-button-size-lg {
+    font-size: 24px;
+  }
+
+  &.p-button-style-normal.p-button-type-normal {
+    border-color: var(--default-green);
+    color: var(--default-green);
+
+    &:active {
+      border-color: var(--dark-green);
+      color: var(--dark-green);
     }
-
-    &:active{
-      border-color: var(--darker-blue);
-      background-color: var(--darker-blue);
-    }
-
   }
 
   &.p-button-style-normal.p-button-type-danger {
@@ -47,7 +42,28 @@
     }
   }
 
-  &.p-button-style-primary.p-button-type-danger {
+  &.p-button-style-fill {
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.315);
+  }
+
+  &.p-button-style-fill.p-button-type-normal {
+    border-color: var(--default-green);
+    background-color: var(--default-green);
+    color: #FFF;
+
+    &:hover {
+      border-color: var(--dark-green);
+      background-color: var(--dark-green);
+    }
+
+    &:active{
+      border-color: var(--darker-green);
+      background-color: var(--darker-green);
+    }
+
+  }
+
+  &.p-button-style-fill.p-button-type-danger {
     border-color: var(--default-red);
     background-color: var(--default-red);
     color: #FFF;

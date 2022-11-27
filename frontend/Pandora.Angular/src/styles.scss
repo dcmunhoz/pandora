@@ -15,6 +15,9 @@
   --default-red: #EF4C4C;
   --dark-red: #DF4949;
   --darker-red: #C53D3D;
+  --default-green: #00ADB5;
+  --dark-green: #00969D;
+  --darker-green: #00868C;
 }
 
 * {
@@ -22,7 +25,7 @@
   margin: 0;
   box-sizing: border-box;
 
-  font-family: 'Lato';
+  font-family: 'Roboto';
   color: var(--default-dark)
 
 }

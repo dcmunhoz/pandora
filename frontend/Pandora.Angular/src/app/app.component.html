@@ -19,6 +19,26 @@
 <hr />
 
 <p-input
+  p-label="Small"
+  p-size="sm"
+  p-placeholder="Teste"
+  [p-error]="true"
+></p-input>
+
+<p-input
+  p-label="Medium"
+  p-size="md"
+  p-placeholder="Teste"
+></p-input>
+
+<p-input
+  p-label="Large"
+  p-size="lg"
+  p-placeholder="Teste"
+  p-style="fill"
+></p-input>
+
+<p-input
   [(ngModel)]="inputModel"
   p-type="text"
   p-placeholder="Teste"
@@ -53,10 +73,12 @@
 
 <p-button
   p-text="Teste"
-  p-style="primary"
+  p-style="fill"
   p-type="normal"
 ></p-button>
+
 <br />
+
 <p-button
   p-text="Teste"
   p-style="normal"
@@ -65,6 +87,7 @@
 
 <p-button
   p-text="Teste"
-  p-style="primary"
+  p-style="fill"
   p-type="danger"
+  p-size="lg"
 ></p-button>

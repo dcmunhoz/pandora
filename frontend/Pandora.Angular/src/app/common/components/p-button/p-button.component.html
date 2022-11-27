@@ -2,8 +2,11 @@
   class="p-button"
   [class.p-button-style-normal]="style === 'normal'"
   [class.p-button-type-normal]="type === 'normal'"
-  [class.p-button-style-primary]="style === 'primary'"
+  [class.p-button-style-fill]="style === 'fill'"
   [class.p-button-type-danger]="type === 'danger'"
+  [class.p-button-size-sm]="size === 'sm'"
+  [class.p-button-size-md]="size === 'md'"
+  [class.p-button-size-lg]="size === 'lg'"
   (click)="emitClick()"
 >
   {{ text }}

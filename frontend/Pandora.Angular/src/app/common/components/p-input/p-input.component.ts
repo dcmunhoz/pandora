@@ -20,6 +20,8 @@ export default class PInputComponent implements ControlValueAccessor {
   @Input('p-placeholder') placeholder: string = '';
   @Input('p-style') style: 'fill' | 'default' = 'default';
   @Input('p-label') label: string = '';
+  @Input('p-size') size: 'sm' | 'md' | 'lg' = 'sm';
+  @Input('p-error') error: boolean = false;
 
   private _onChange = (value: any): void => {};
   private _onTouched = (value: any): void => {};
