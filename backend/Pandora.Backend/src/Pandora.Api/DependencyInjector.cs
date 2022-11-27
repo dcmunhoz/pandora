@@ -1,4 +1,5 @@
 ﻿using Microsoft.OpenApi.Models;
+using Pandora.Api.Filters;
 
 namespace Microsoft.Extensions.DependencyInjection
 {
@@ -8,7 +9,9 @@ namespace Microsoft.Extensions.DependencyInjection
         {
             // Add services to the container.
 
-            services.AddControllers();
+            services.AddControllers(op => 
+                op.Filters.Add<ExceptionFilter>()
+            );
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             services.AddEndpointsApiExplorer();
             services.AddSwaggerGen(option =>
