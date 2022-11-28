@@ -1,12 +1,17 @@
-﻿using Pandora.Domain.Entities;
-using Pandora.Infra.Repository.Mapping;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
+using Pandora.Domain.Entities;
+using Pandora.Infra.Persistence.Mapping;
 
 namespace Pandora.Infra.Repository.Context
 {
     public class DatabaseContext : DbContext, IDatabaseContext
     {
-        public DbSet<Test> Tests { get; set; }
+
+        #region DBsets
+
+        public DbSet<User> Users { get; set; }
+
+        #endregion
 
         public DatabaseContext(DbContextOptions<DatabaseContext> option) : base(option) { }
 
@@ -14,7 +19,7 @@ namespace Pandora.Infra.Repository.Context
         {
             base.OnModelCreating(builder);
 
-            builder.ApplyConfiguration(new TestMap());
+            builder.ApplyConfiguration(new UserMap());
         }
 
     }

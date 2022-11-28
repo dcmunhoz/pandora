@@ -11,9 +11,10 @@ namespace Microsoft.Extensions.DependencyInjection
 
             services.AddControllers(op =>
             {
-                op.Filters.Add<NotificationFilter>();
                 op.Filters.Add<ExceptionFilter>();
+                op.Filters.Add<NotificationFilter>();
             });
+
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             services.AddEndpointsApiExplorer();
             services.AddSwaggerGen(option =>

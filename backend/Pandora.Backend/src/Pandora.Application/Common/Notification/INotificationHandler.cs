@@ -11,7 +11,7 @@ namespace Pandora.Application.Common.Notification
     {
         public INotificationHandler Title(string message);
         public INotificationHandler Detail(string message);
-        public INotificationHandler Status(HttpStatusCode statuscode);
+        public INotificationHandler Status(int statuscode);
         public void Raise();
         public bool HasNotification();
         public NotificationResponse GetNotification();

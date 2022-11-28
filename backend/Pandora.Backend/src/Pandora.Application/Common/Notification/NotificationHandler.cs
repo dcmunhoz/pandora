@@ -11,7 +11,7 @@ namespace Pandora.Application.Common.Notification
     public class NotificationHandler: INotificationHandler
     {
         private ICollection<NotificationResponse> _notifications;
-        private HttpStatusCode _statusCode = HttpStatusCode.BadRequest;
+        private int _statusCode = 400;
         private string _notificationMessage = "";
         private string _detailMessage = "";
 
@@ -32,7 +32,7 @@ namespace Pandora.Application.Common.Notification
             return this;
         }
 
-        public INotificationHandler Status(HttpStatusCode statusCode)
+        public INotificationHandler Status(int statusCode)
         {
             _statusCode = statusCode;
             return this;
@@ -42,7 +42,7 @@ namespace Pandora.Application.Common.Notification
         {
             var response = new NotificationResponse()
             {
-                Status = _statusCode,
+                StatusCode = _statusCode,
                 Title = _notificationMessage ?? "",
                 Detail = _detailMessage ?? ""
             };
@@ -65,8 +65,7 @@ namespace Pandora.Application.Common.Notification
 
     public class NotificationResponse
     {
-        public HttpStatusCode Status { get; set; }
-
+        public int StatusCode { get; set; }
         public string Title { get; set; }
         public string Detail { get; set; }
     }

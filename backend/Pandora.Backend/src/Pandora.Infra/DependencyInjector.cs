@@ -8,7 +8,7 @@ namespace Microsoft.Extensions.DependencyInjection
         public static IServiceCollection AddInfra(this IServiceCollection services )
         {
             // Repositories
-            services.AddTransient<ITestRepository, TestRepository>();
+            services.AddTransient<IUserRepository, UserRepository>();
 
             return services;
         }

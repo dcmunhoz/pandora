@@ -1,11 +1,11 @@
-﻿using Pandora.Infra.Postgresql.Mapping;
-using Pandora.Infra.Repository.Context;
+﻿using Pandora.Infra.Repository.Context;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Pandora.Infra.Postgresql.Mapping;
 
 namespace Pandora.Infra.Postgresql
 {
@@ -17,7 +17,8 @@ namespace Pandora.Infra.Postgresql
         {
             base.OnModelCreating(builder);
             builder.HasDefaultSchema("public");
-            builder.ApplyConfiguration(new TestMap());
+
+            builder.ApplyConfiguration(new UserMap());
         }
     }
 }

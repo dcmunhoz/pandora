@@ -1,5 +1,9 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using MediatR;
+using Microsoft.AspNetCore.Mvc;
+using Pandora.Application.Business.Authentication.Commands.Register;
 using Pandora.Application.Common.Notification;
+using Pandora.Application.Dto.Authentication.Requests;
+using Pandora.Application.Dto.Authentication.Responses;
 using System.Net;
 
 namespace Pandora.Api.Controllers
@@ -8,30 +12,30 @@ namespace Pandora.Api.Controllers
     [Route("/api/v1/[controller]")]
     public class AuthenticationController : ControllerBase
     {
+        public IMediator _mediator;
 
-        public INotificationHandler _notification;
-
-        public AuthenticationController(INotificationHandler notification)
+        public AuthenticationController(IMediator mediator)
         {
-            _notification = notification;
+            _mediator = mediator;
         }
 
         /// <summary>
+        /// 
         /// Cadastra um novo usuário na aplicação via inscreva-se.
+        /// 
         /// </summary>
-        [HttpPost]
+        [HttpPost("signup")]
         [ProducesResponseType(typeof(ProblemDetails), (int)HttpStatusCode.InternalServerError)]
         [ProducesResponseType(typeof(NotificationResponse), (int)HttpStatusCode.BadRequest)]
-        public IActionResult RegisterUser()
+        [ProducesResponseType(typeof(RegisterNewUserResponse), (int)HttpStatusCode.OK)]
+        public async Task<IActionResult> RegisterUser([FromBody] RegisterNewUserRequest request)
         {
 
-            _notification
-                .Title("Você não pode fazer isso")
-                .Detail("Por causa disso")
-                .Status(HttpStatusCode.AlreadyReported)
-                .Raise();
+            var command = request.MapTo<RegisterNewUserCommand>();
 
-            return Ok();
+            var result = await _mediator.Send(command);
+
+            return Ok(result.MapTo<RegisterNewUserResponse>());
         }
 
     }

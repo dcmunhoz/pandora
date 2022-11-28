@@ -1,19 +1,16 @@
 create sequence s_fin_test;
 
-create table fin_test(
-	seqtest integer default nextval('s_fin_test'),
+create extension if not exists "uuid-ossp";
+
+create table users(
+	id uuid default uuid_generate_v4(),
 	username varchar(16) not null,
-	password varchar(16) not null,
-	lastupdate timestamp default now()
+	password  varchar(16) not null,
+	email	  varchar(255) not null,
+	name	  varchar(100) not null,
+	last_name varchar(100) not null,
+	creation_date timestamp default now()	
 );
 
-
-select * from fin_test a;
-
-insert into fin_test(username, password)
-values('daniel', '1234');
-
-
-update fin_test 
-set username = 'biririr'
-where seqtest = 10;
+alter table users 
+add constraint pk_user primary key(id);

@@ -20,7 +20,7 @@ namespace Microsoft.Extensions.DependencyInjection
             var serviceProvider = services.BuildServiceProvider();
             MapperExtension.Configure(serviceProvider.GetService<IMapper>());
 
-            services.AddSingleton<INotificationHandler, NotificationHandler>();
+            services.AddScoped<INotificationHandler, NotificationHandler>();
 
             return services;
         }

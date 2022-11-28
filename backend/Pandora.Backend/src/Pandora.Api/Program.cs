@@ -10,7 +10,7 @@ builder.Services
     .AddApplication()
     .AddInfra();
 
-builder.Services.AddTransient<IDatabaseContext, PostgresqlContext>();
+builder.Services.AddScoped<IDatabaseContext, PostgresqlContext>();
 
 builder.Services.AddDbContext<DatabaseContext>(option =>
     option.UseNpgsql(builder.Configuration.GetConnectionString("POSTGRESQL")));
