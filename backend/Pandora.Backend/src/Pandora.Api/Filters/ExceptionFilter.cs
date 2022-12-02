@@ -26,7 +26,7 @@ namespace Pandora.Api.Filters
             {
                 Type = "https://www.rfc-editor.org/rfc/rfc7231#section-6.6.1",
                 Title = "Ocorreu um erro ao processar a requisição.",
-                Detail = context.Exception.Message + ( (String.IsNullOrEmpty(context.Exception.InnerException.ToString())) ? (" Inner Exception: " + context.Exception.InnerException) : "" ),
+                Detail = context.Exception.Message + ( (context.Exception.InnerException != null) ? (" Inner Exception: " + context.Exception.InnerException) : "" ),
                 Status = (int)HttpStatusCode.InternalServerError,
                 Instance = context.HttpContext.Request.Path
             };

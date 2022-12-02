@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -15,9 +16,10 @@ namespace Pandora.Domain.Entities
         public string Email { get; private set; }
         public string Name { get; private set; }
         public string LastName { get; private set; }
-        public DateTime CreationDate { get; private set; } 
+        public DateTime CreationDate { get; private set; }
 
-        public User() { }
+        [ExcludeFromCodeCoverage]
+        protected User() { }
 
         public User(string username, string password, string email, string name, string lastname)
         {
@@ -27,7 +29,7 @@ namespace Pandora.Domain.Entities
             Name = name;
             LastName = lastname;
 
-            Id = new Guid();
+            Id = Guid.NewGuid();
             CreationDate = DateTime.Now;
 
         }

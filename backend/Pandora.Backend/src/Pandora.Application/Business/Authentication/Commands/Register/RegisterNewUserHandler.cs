@@ -2,6 +2,7 @@
 using Pandora.Application.Business.Authentication.Results;
 using Pandora.Application.Common.Interfaces.Repository;
 using Pandora.Application.Common.Notification;
+using Pandora.Application.Services.Cryptography;
 using Pandora.Domain.Entities;
 
 namespace Pandora.Application.Business.Authentication.Commands.Register
@@ -21,7 +22,9 @@ namespace Pandora.Application.Business.Authentication.Commands.Register
         {
             _userRepository.BeginTransaction();
 
-            var user = new User(request.Username, request.Password, request.Email, request.Name, request.LastName);
+            string newPassword = Cryptography.Encrypt(request.Password);
+
+            var user = new User(request.Username, newPassword, request.Email, request.Name, request.LastName);
 
             user = await _userRepository.Insert(user);
 
