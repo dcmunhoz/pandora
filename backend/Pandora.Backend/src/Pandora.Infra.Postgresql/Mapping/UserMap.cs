@@ -26,7 +26,7 @@ namespace Pandora.Infra.Postgresql.Mapping
 
             builder.Property(p => p.Password)
                 .HasColumnName("password")
-                .HasColumnType("varchar(16)");
+                .HasColumnType("varchar(64)");
 
             builder.Property(p => p.Email)
                 .HasColumnName("email")
