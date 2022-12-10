@@ -1,5 +1,6 @@
 ﻿using FluentValidation;
 using MediatR;
+using Pandora.Application.Common.Notification;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,10 +15,12 @@ namespace Pandora.Application.Common.Behavior
     {
 
         private readonly IValidator<TRequest>? _validator;
+        private readonly INotificationHandler _notification;
 
-        public ValidationsBehavior(IValidator<TRequest>? validator = null)
+        public ValidationsBehavior(INotificationHandler notification, IValidator<TRequest>? validator = null)
         {
             _validator = validator;
+            _notification = notification;
         }
 
         public async Task<TResponse> Handle(TRequest request, RequestHandlerDelegate<TResponse> next, CancellationToken cancellationToken)
@@ -33,9 +36,20 @@ namespace Pandora.Application.Common.Behavior
 
             if (!result.IsValid)
             {
-                throw new ValidationException(result.Errors);
-            }
+                var errors = new List<string>();
 
+                foreach(var item in result.Errors)
+                {
+                    errors.Add(item.ErrorMessage);
+                }
+
+                _notification
+                    .Title("Ocorreram erros de validação.")
+                    .Detail(errors)
+                    .Raise();
+
+                return default;
+            }
 
             return await next();
 

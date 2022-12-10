@@ -34,14 +34,33 @@ namespace Pandora.Api.Filters
                 var mediaTypes = new MediaTypeCollection();
                 mediaTypes.Add("application/problem+json");
 
-                var problem = new ObjectResult(_notification.GetNotification())
+                ObjectResult problem = null;
+
+                if (_notification.GetNotification().Detail.Count == 1)
                 {
-                    StatusCode = _notification.GetNotification().StatusCode,
-                    ContentTypes = mediaTypes
-                };
+                    var notification = new { 
+                        Title = _notification.GetNotification().Title,
+                        StatusCode = _notification.GetNotification().StatusCode,
+                        Detail = _notification.GetNotification().Detail.FirstOrDefault()
+                    };
+
+                    problem = new ObjectResult(notification)
+                    {
+                        StatusCode = _notification.GetNotification().StatusCode,
+                        ContentTypes = mediaTypes
+                    };
+
+                } 
+                else
+                {
+                    problem = new ObjectResult(_notification.GetNotification())
+                    {
+                        StatusCode = _notification.GetNotification().StatusCode,
+                        ContentTypes = mediaTypes
+                    };
+                }
 
                 context.Result = problem;
-
 
                 if (transaction != null)
                 {

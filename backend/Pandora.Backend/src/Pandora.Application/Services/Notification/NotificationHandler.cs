@@ -13,7 +13,7 @@ namespace Pandora.Application.Common.Notification
         private ICollection<NotificationResponse> _notifications;
         private int _statusCode = 400;
         private string _notificationMessage = "";
-        private string _detailMessage = "";
+        private ICollection<string> _detailMessage = new List<string>();
 
         public NotificationHandler()
         {
@@ -28,7 +28,13 @@ namespace Pandora.Application.Common.Notification
 
         public INotificationHandler Detail(string message)
         {
-            _detailMessage = message;
+            _detailMessage.Add(message);
+            return this;
+        }
+
+        public INotificationHandler Detail(ICollection<string> messages)
+        {
+            _detailMessage = messages;
             return this;
         }
 
@@ -44,8 +50,12 @@ namespace Pandora.Application.Common.Notification
             {
                 StatusCode = _statusCode,
                 Title = _notificationMessage ?? "",
-                Detail = _detailMessage ?? ""
+                Detail = _detailMessage.ToList<string>()
             };
+
+            _statusCode = 400;
+            _notificationMessage = "";
+            _detailMessage.Clear();
 
             _notifications.Add(response);
         }   
@@ -67,6 +77,6 @@ namespace Pandora.Application.Common.Notification
     {
         public int StatusCode { get; set; }
         public string Title { get; set; }
-        public string Detail { get; set; }
+        public ICollection<string> Detail { get; set; }
     }
 }
