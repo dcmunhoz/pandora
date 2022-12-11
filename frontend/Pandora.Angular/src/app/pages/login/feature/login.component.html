@@ -1,7 +1,42 @@
-<h1>Login</h1>
+<main>
+  <div class="login-form-container">
+    <div class="form-container">
+      <header>
+        <img
+          src="./../../../../assets/imgs/logo.svg"
+          alt="Pandora logo"
+        />
+        <span>Tenha o controle de todas suas movimentações financeiras de forma facil</span>
+      </header>
+      <form [formGroup]="formLogin">
+        <p-input
+          formControlName="username"
+          p-label="Usuário"
+          p-placeholder="Seu usuário"
+          p-style="fill"
+          p-size="md"
+          [p-error]="!!formLogin.get('username')?.dirty && !!formLogin.get('username')?.invalid"
+        ></p-input>
 
-<p-button
-  p-style="fill"
-  p-text="Cadastre-se"
-  (p-click)="onClick()"
-></p-button>
+        <p-input
+          formControlName="password"
+          p-label="Senha"
+          p-placeholder="Sua senha super segura"
+          p-style="fill"
+          p-size="md"
+          [p-error]="!!formLogin.get('password')?.dirty && !!formLogin.get('password')?.invalid"
+        ></p-input>
+      </form>
+
+      <p-button
+        p-text="Entrar"
+        p-style="fill"
+        (p-click)="login()"
+      ></p-button>
+
+      <span>Não possui acesso? <a routerLink="/signup">Cadastre-se aqui.</a> </span>
+    </div>
+  </div>
+
+  <div class="background-container"></div>
+</main>

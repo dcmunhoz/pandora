@@ -1,0 +1,61 @@
+main {
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+
+    .login-form-container {
+        position: relative;
+        width: 40%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        .form-container{
+            position: relative;
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            header {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                margin-bottom: 50px;
+
+                img {
+                    width: 350px;
+                }
+
+                span{
+                  text-align: center;
+                  width: 400px;
+                }
+            }
+
+            form {
+                margin-bottom: 20px;
+                width: 100%;
+            }
+
+            p-button{
+                width: 100%;
+            }
+
+            span{
+                text-align: center;
+            }
+        }
+
+    }
+
+    .background-container{
+        background-image: url('./../../../../assets/imgs/background.jpg');
+        background-size: cover;
+        background-position: left;
+        flex-grow: 1;
+    }
+
+}
