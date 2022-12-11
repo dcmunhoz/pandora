@@ -1,0 +1,89 @@
+<main>
+  <div class="background-container">
+    <div class="bg-image"></div>
+  </div>
+
+  <div class="signup-form-container">
+    <div class="logo-header">
+      <img
+        src="./../../../../assets/imgs/logo.svg"
+        alt="Pandora Logo"
+      />
+    </div>
+    <div class="form-container">
+      <div class="form-header">
+        <h1>Faça seu cadastro</h1>
+        <p>Preencha as informações para completar seu cadastro.</p>
+      </div>
+
+      <form [formGroup]="formUser">
+        <p-input
+          formControlName="username"
+          p-label="Usuário"
+          p-placeholder="Seu usuário"
+          p-style="fill"
+          p-size="md"
+          [p-error]="!!formUser.get('username')?.dirty && !!formUser.get('username')?.invalid"
+        ></p-input>
+
+        <p-input
+          formControlName="password"
+          p-label="Senha"
+          p-placeholder="Sua senha super segura"
+          p-style="fill"
+          p-size="md"
+          p-type="password"
+          [p-error]="!!formUser.get('password')?.dirty && !!formUser.get('password')?.errors"
+        ></p-input>
+
+        <p-input
+          formControlName="confirmedPassword"
+          p-label="Confirmar senha"
+          p-placeholder="Confirme sua senha"
+          p-style="fill"
+          p-size="md"
+          p-type="password"
+          [p-error]="!!formUser.get('confirmedPassword')?.dirty && !!formUser.get('confirmedPassword')?.errors"
+        ></p-input>
+
+        <p-input
+          formControlName="email"
+          p-label="E-mail"
+          p-placeholder="Seu melhor e-mail"
+          p-style="fill"
+          p-size="md"
+          [p-error]="!!formUser.get('email')?.dirty && !!formUser.get('email')?.errors"
+        ></p-input>
+
+        <p-input
+          formControlName="name"
+          p-label="Nome"
+          p-placeholder="Seu nome"
+          p-style="fill"
+          p-size="md"
+          [p-error]="!!formUser.get('name')?.dirty && !!formUser.get('name')?.errors"
+        ></p-input>
+
+        <p-input
+          formControlName="lastName"
+          p-label="Sobrenome"
+          p-placeholder="Seu Sobrenome"
+          p-style="fill"
+          p-size="md"
+          [p-error]="!!formUser.get('lastName')?.dirty && !!formUser.get('lastName')?.errors"
+        ></p-input>
+      </form>
+
+      <p-button
+        p-style="fill"
+        p-text="Cadastrar"
+        (p-click)="registerUser()"
+      ></p-button>
+    </div>
+  </div>
+</main>
+
+<p-loading-overlay
+  *ngIf="showLoading"
+  p-message="Registrando usuário..."
+></p-loading-overlay>

@@ -1,14 +1,25 @@
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
+import { ToastrModule } from 'ngx-toastr';
+import { AppRoutingModule } from './app-routing.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
-import PButtonModule from './common/components/p-button/p-button.module';
-import PInputModule from './common/components/p-input/p-input.module';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [FormsModule, ReactiveFormsModule, BrowserModule, PInputModule, PButtonModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot({
+      timeOut: 5000,
+      positionClass: 'toast-top-right',
+      preventDuplicates: true
+    })
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })

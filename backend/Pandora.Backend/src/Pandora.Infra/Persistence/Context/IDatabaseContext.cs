@@ -1,5 +1,6 @@
-﻿using Pandora.Domain.Entities;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Infrastructure;
+using Pandora.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +11,14 @@ namespace Pandora.Infra.Repository.Context
 {
     public interface IDatabaseContext
     {
-        public DbSet<Test> Tests { get; set; }
+
+        #region DbSets
+
+        public DbSet<User> Users { get; set; }
+
+        #endregion
+
+        public DatabaseFacade Database { get; }
 
         public int SaveChanges();
 

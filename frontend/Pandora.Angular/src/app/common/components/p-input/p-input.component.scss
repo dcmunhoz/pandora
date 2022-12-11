@@ -28,10 +28,10 @@
   display: inline-block;
   position: relative;
   padding: 5px;
+  width: 100%;
 }
 
 .p-input-label{
-  font-weight: bold;
   padding-bottom: 10px;
   position: relative;
   display: inline-block;
@@ -44,6 +44,7 @@
   font-size: 16px;
   transition: 100ms;
   display: block;
+  width: 100%;
 }
 
 .p-base-input:hover {

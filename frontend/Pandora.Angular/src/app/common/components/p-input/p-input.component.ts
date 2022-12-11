@@ -27,6 +27,11 @@ export default class PInputComponent implements ControlValueAccessor {
   private _onTouched = (value: any): void => {};
 
   protected field: any;
+
+  public get value(): any {
+    return this.field;
+  }
+
   public set value(val: any) {
     this.field = val;
     this._onChange(val);
