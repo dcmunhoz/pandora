@@ -12,6 +12,7 @@ import { RegisterNewUserRequest } from 'src/app/common/services/authentication/r
 })
 export class SingUpComponent {
   protected formUser: FormGroup;
+  protected showLoading = false;
 
   constructor(
     private readonly _fb: FormBuilder,
@@ -35,6 +36,8 @@ export class SingUpComponent {
       return;
     }
 
+    this.showLoading = true;
+
     let request: RegisterNewUserRequest = this.formUser.value;
 
     this._authService.register(request).subscribe({
@@ -42,9 +45,11 @@ export class SingUpComponent {
         this._notification.success('Usuário cadastrado com sucesso!');
         this.formUser.reset();
         this._route.navigateByUrl('/login');
+        this.showLoading = false;
       },
       error: (error: HttpErrorResponse) => {
         this._notification.error(error.error?.detail, error.error?.title);
+        this.showLoading = false;
       },
       complete: () => {}
     });
