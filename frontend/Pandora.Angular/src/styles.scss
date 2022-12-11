@@ -26,11 +26,14 @@
   box-sizing: border-box;
 
   font-family: 'Roboto';
-  color: var(--default-dark)
 
 }
 
 body{
   position: relative;
   height: 100%;
+
+  app-root{
+    color: var(--default-dark)
+  }
 }

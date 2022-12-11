@@ -9,7 +9,7 @@ using System.Net;
 namespace Pandora.Api.Controllers
 {
     [ApiController]
-    [Route("/api/v1/[controller]")]
+    [Route("/api/v1/auth")]
     public class AuthenticationController : ControllerBase
     {
         public IMediator _mediator;
