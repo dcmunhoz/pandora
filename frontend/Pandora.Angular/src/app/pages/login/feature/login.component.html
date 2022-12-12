@@ -24,6 +24,7 @@
           p-placeholder="Sua senha super segura"
           p-style="fill"
           p-size="md"
+          p-type="password"
           [p-error]="!!formLogin.get('password')?.dirty && !!formLogin.get('password')?.invalid"
         ></p-input>
       </form>
@@ -40,3 +41,8 @@
 
   <div class="background-container"></div>
 </main>
+
+<p-loading-overlay
+  *ngIf="showLoading"
+  p-message="Autenticando..."
+></p-loading-overlay>

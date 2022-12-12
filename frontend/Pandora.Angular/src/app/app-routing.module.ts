@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './common/guards/auth.guard';
 
 let routes: Routes = [
   {
@@ -12,8 +13,10 @@ let routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'login',
-    pathMatch: 'full'
+    loadChildren: () => import('./pages/signup/signup.module').then(m => m.SignupModule),
+    canActivate: [AuthGuard]
+    // redirectTo: 'login',
+    // pathMatch: 'full'
   }
 ];
 
