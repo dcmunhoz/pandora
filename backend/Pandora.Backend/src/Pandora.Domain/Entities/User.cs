@@ -18,6 +18,14 @@ namespace Pandora.Domain.Entities
         public string LastName { get; private set; }
         public DateTime CreationDate { get; private set; }
 
+        public string FullName
+        {
+            get
+            {
+                return $"{Name} {LastName}";
+            }
+        }
+
         [ExcludeFromCodeCoverage]
         protected User() { }
 

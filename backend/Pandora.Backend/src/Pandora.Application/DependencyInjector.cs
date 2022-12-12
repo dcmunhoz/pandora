@@ -5,6 +5,7 @@ using FluentValidation.AspNetCore;
 using MediatR;
 using System.Reflection;
 using Pandora.Application.Common.Notification;
+using Pandora.Application.Services.Authentication;
 
 namespace Microsoft.Extensions.DependencyInjection
 {
@@ -22,6 +23,8 @@ namespace Microsoft.Extensions.DependencyInjection
 
             services.AddScoped<INotificationHandler, NotificationHandler>();
 
+            services.AddTransient<IAuthService, AuthService>();
+            
             return services;
         }
     }

@@ -13,6 +13,7 @@ namespace Pandora.Application.Common.Interfaces.Repository
         public Task<User> Insert(User user);
         public Task<User> GetByUsernameAsync(string username);
         public Task<User> GetByEmailAsync(string email);
+        public Task<User> GetByUsernameAndPasswordAsync(string username, string password);
 
     }
 }

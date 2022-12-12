@@ -36,5 +36,10 @@ namespace Pandora.Infra.Persistence.Repository
 
             return user;
         }
+
+        public async Task<User> GetByUsernameAndPasswordAsync(string username, string password)
+        {
+            return await _context.Users.FirstOrDefaultAsync(w => w.Username == username && w.Password == password);
+        }
     }
 }
