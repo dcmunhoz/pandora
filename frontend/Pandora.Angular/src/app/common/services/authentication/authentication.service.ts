@@ -34,4 +34,8 @@ export class AuthenticationService {
   public isAuthenticated(): boolean {
     return !!localStorage.getItem('auth');
   }
+
+  public getAuthentication(): IAuthenticatedUser {
+    return JSON.parse(localStorage.getItem('auth') as string) as IAuthenticatedUser;
+  }
 }

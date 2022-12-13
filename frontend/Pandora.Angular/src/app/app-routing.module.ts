@@ -13,10 +13,8 @@ let routes: Routes = [
   },
   {
     path: '',
-    loadChildren: () => import('./pages/signup/signup.module').then(m => m.SignupModule),
-    canActivate: [AuthGuard]
-    // redirectTo: 'login',
-    // pathMatch: 'full'
+    redirectTo: 'login',
+    pathMatch: 'full'
   }
 ];
 

@@ -6,6 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
+import { HttpInterceptorModule } from './common/interceptors/http/http-interceptor.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -14,6 +15,7 @@ import { AppComponent } from './app.component';
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    HttpInterceptorModule,
     ToastrModule.forRoot({
       timeOut: 5000,
       positionClass: 'toast-top-right',

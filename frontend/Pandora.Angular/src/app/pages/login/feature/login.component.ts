@@ -41,9 +41,6 @@ export class LoginComponent {
       next: (response: IAuthenticatedUser) => {
         this.showLoading = false;
         this._authService.saveToken(response);
-
-        // TODO: Create forbidden page
-        // TODO: Create HTTP Interceptor to set token on requests and redirect to forbidden when not authenticated
       },
       error: (error: HttpErrorResponse) => {
         this._notification.error(error.error?.detail, error.error?.title);
