@@ -16,16 +16,7 @@ let routes: Routes = [
     path: '',
     component: HostComponent,
     canActivate: [AuthGuard],
-    children: [
-      {
-        path: '',
-        loadChildren: () => import('./pages/login/login.module').then(m => m.LoginModule)
-      },
-      {
-        path: 'b',
-        loadChildren: () => import('./pages/signup/signup.module').then(m => m.SignupModule)
-      }
-    ]
+    children: []
   }
 ];
 
