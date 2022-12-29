@@ -19,6 +19,7 @@ namespace Pandora.Infra.Postgresql
             builder.HasDefaultSchema("public");
 
             builder.ApplyConfiguration(new UserMap());
+            builder.ApplyConfiguration(new CategoryMap());
         }
     }
 }

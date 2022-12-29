@@ -15,6 +15,7 @@ namespace Pandora.Infra.Repository.Context
         #region DbSets
 
         public DbSet<User> Users { get; set; }
+        public DbSet<Category> Categories { get; set; }
 
         #endregion
 

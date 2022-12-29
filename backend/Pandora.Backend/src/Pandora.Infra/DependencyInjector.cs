@@ -7,10 +7,11 @@ namespace Microsoft.Extensions.DependencyInjection
 {
     public static class DependencyInjector
     {
-        public static IServiceCollection AddInfra(this IServiceCollection services )
+        public static IServiceCollection AddInfra( this IServiceCollection services )
         {
             // Repositories
             services.AddTransient<IUserRepository, UserRepository>();
+            services.AddTransient<ICategoryRepository, CategoryRepository>();
 
             // Providers
             services.AddTransient<ITokenService, JwtProvider>();
