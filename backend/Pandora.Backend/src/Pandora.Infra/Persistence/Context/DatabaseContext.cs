@@ -10,6 +10,7 @@ namespace Pandora.Infra.Repository.Context
         #region DBsets
 
         public DbSet<User> Users { get; set; }
+        public DbSet<Category> Categories { get; set; }
 
         #endregion
 
@@ -20,6 +21,7 @@ namespace Pandora.Infra.Repository.Context
             base.OnModelCreating(builder);
 
             builder.ApplyConfiguration(new UserMap());
+            builder.ApplyConfiguration(new CategoryMap());
         }
 
     }

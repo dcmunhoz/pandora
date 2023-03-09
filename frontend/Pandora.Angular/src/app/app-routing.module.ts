@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './common/guards/auth.guard';
+import { HostComponent } from './pages/host/feature/host.component';
 
 let routes: Routes = [
   {
@@ -13,8 +14,9 @@ let routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'login',
-    pathMatch: 'full'
+    component: HostComponent,
+    canActivate: [AuthGuard],
+    children: []
   }
 ];
 
